@@ -58,7 +58,7 @@ module.exports = function(grunt) {
     less: {
       dev: {
         files: {
-          "public/css/fannylescourret.css": "assets/css/fannylescourret.less"
+          "public/css/lescourret.css": "assets/css/lescourret.less"
         }
       }
     },
@@ -68,8 +68,8 @@ module.exports = function(grunt) {
       },
       dev: {
         files: {
-          'public/js/fannylescourret.min.js': [
-            'assets/js/fannylescourret.js'
+          'public/js/lescourret.min.js': [
+            'assets/js/lescourret.js'
           ],
           'public/js/libs.min.js': [
             'bower_components/jquery/dist/jquery.js',
