@@ -25,12 +25,12 @@ develop:
 
 
 #: bower - Download libraries with bower.
-bower:
+bower: develop
 	$(BOWER) install
 
 
 #: watch - Watch in-development files and automatically build them on update.
-watch:
+watch: develop
 	$(GRUNT) watch
 
 
