@@ -29,62 +29,33 @@ body {
 H1, H2, H3, H4, H5, H6 {
   font-family: @font_title;
   text-shadow: 1px 1px 0px #f0f0f0;
+  font-variant: small-caps;
+  color: #000000;
 }
 
 H1 {
-  text-align: right;
-  font-size: 3em;
+  font-size: 5em;
   margin-top: 0px;
   margin-bottom: 20px;
   line-height: 1em;
-  color: #000000;
-
-  SMALL {
-    color: #606060;
-  }
 }
 
 H2 {
-  font-size: 3em;
-  margin: 1em auto 0.5em auto;
-  color: #909090;
-  border-width: 0 0 0px 0;
-  border-style: solid;
-  border-color: #e0e0e0;
+  font-size: 1.5em;
+  margin: 1em auto 0em auto;
 }
 
 H3 {
-  font-size: 2em;
+  font-size: 1em;
   margin: 1em auto 0.5em auto;
-  color: #a0a0a0;
-  border-width: 0 0 0px 0;
-  border-style: solid;
-  border-color: #e0e0e0;
 }
 
 #content {
-  margin-top: 51px;
+  &:extend(.container);
+  margin-top: 0;
   margin-bottom: 80px;
   padding-top: 2em;
   background-color: @body_bg_2;
-}
-
-/* Navigation, menus. */
-#navbar_main {
-  border-width: 0;
-  border-color: #f0f0f0;
-  background-color: #f0f0f0;
-  .container-fluid {
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-color: #c0c0c0;
-    .navbar-brand {
-      font-size: 2em;
-      line-height: 50px;
-      padding: 0; 
-      font-family: @font_title;
-    }
-  }
 }
 
 .footer {
@@ -111,17 +82,16 @@ H3 {
 /* Home page. */
 BODY#home {
   SECTION {
+    .make-row();
     .make-xs-column(12);
-    .make-sm-column(6);
-    .make-sm-column-offset(3);
-    .make-md-column(5);
-    .make-md-column-offset(3);
-    .make-lg-column(4);
-    .make-lg-column-offset(4);
-    P {
-      font-size: 1.2em;
-      text-align: right;
-      margin-bottom: 1.2em;
+    .make-sm-column(12);
+    .make-md-column(12);
+    .make-lg-column(12);
+    > DIV {
+      .make-xs-column(12);
+      .make-sm-column(4);
+      .make-md-column(4);
+      .make-lg-column(4);
     }
   }
 }
@@ -129,18 +99,22 @@ BODY#home {
 
 /* Media specific. */
 @media (max-width: @screen-lg-min) {  /* medium */
-  BODY {
+  H1 {
+    font-size: 5em;
   }
 }
 @media (max-width: @screen-md-min) {  /* small */
-  BODY {
+  H1 {
+    font-size: 4em;
   }
 }
 @media (max-width: @screen-sm-min) {  /* x-small */
-  BODY {
+  H1 {
+    font-size: 3em;
   }
 }
 @media (min-width: @screen-lg-min) {  /* large */
-  BODY {
+  H1 {
+    font-size: 5em;
   }
 }
