@@ -6,6 +6,16 @@
 @body_bg_1: #d0d4d9;
 @body_bg_2: #f9f9f9;
 
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: url(grayscale.svg); /* Firefox 4+ */
+  filter: gray; /* IE 6-9 */
+}
+
 /* Fonts. */
 @font_standard: 'Open Sans Condensed', sans-serif; 
 @font_title: 'Open Sans Condensed', sans-serif; 
@@ -29,41 +39,37 @@ body {
 H1, H2, H3, H4, H5, H6 {
   font-family: @font_title;
   text-shadow: 1px 1px 0px #f0f0f0;
+  font-variant: small-caps;
+  color: #000000;
 }
 
 H1 {
-  text-align: right;
-  font-size: 3em;
+  font-size: 5em;
   margin-top: 0px;
   margin-bottom: 20px;
   line-height: 1em;
   color: #000000;
-
-  SMALL {
-    color: #606060;
-  }
+  .make-xs-column(12);
+  .make-sm-column(12);
+  .make-md-column(12);
+  .make-lg-column(12);
 }
 
 H2 {
-  font-size: 3em;
+  font-size: 2em;
   margin: 1em auto 0.5em auto;
-  color: #909090;
-  border-width: 0 0 0px 0;
-  border-style: solid;
-  border-color: #e0e0e0;
+  color: #000000;
 }
 
 H3 {
-  font-size: 2em;
-  margin: 1em auto 0.5em auto;
-  color: #a0a0a0;
-  border-width: 0 0 0px 0;
-  border-style: solid;
-  border-color: #e0e0e0;
+  font-size: 1em;
+  margin: 1em auto 0 auto;
+  color: #000000;
 }
 
 #content {
-  margin-top: 51px;
+  &:extend(.container);
+  margin-top: 0px;
   margin-bottom: 80px;
   padding-top: 2em;
   background-color: @body_bg_2;
@@ -113,15 +119,24 @@ BODY#home {
   SECTION {
     .make-xs-column(12);
     .make-sm-column(6);
-    .make-sm-column-offset(3);
-    .make-md-column(5);
-    .make-md-column-offset(3);
-    .make-lg-column(4);
-    .make-lg-column-offset(4);
-    P {
-      font-size: 1.2em;
-      text-align: right;
-      margin-bottom: 1.2em;
+    .make-md-column(3);
+    .make-lg-column(3);
+  }
+  SECTION#book {
+    .make-xs-column(12);
+    .make-sm-column(12);
+    .make-md-column(12);
+    .make-lg-column(12);
+    .make-row();
+    > DIV {
+      .make-xs-column(12);
+      .make-sm-column(6);
+      .make-md-column(3);
+      .make-lg-column(3);
+      IMG {
+        width: 100%;
+        margin-bottom: 1em;
+      }
     }
   }
 }
