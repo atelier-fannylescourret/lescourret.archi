@@ -1,4 +1,4 @@
-= lescourret.archi
+# lescourret.archi
 
 This is an early prototype for architect Fanny Lescourret's website:
 http://lescourret.archi
