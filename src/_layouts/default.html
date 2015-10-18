@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="fr">
+  {% include head.html %}
+  <body id="page{{ page.url | replace:'/','--' | replace:'.html','' }}">
+    {% include header.html %}
+    <div id="content">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

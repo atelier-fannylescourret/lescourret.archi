@@ -1,0 +1,20 @@
+# Site settings.
+title: Fanny Lescourret - Architecte
+email: fanny@lescourret.archi
+description: >
+  Fanny Lescourret, architecte DPLG à Bayonne.
+baseurl: ""
+url: "http://lescourret.archi"
+
+# Build settings.
+source: src
+destination: public
+markdown: kramdown
+timezone: Europe/Paris
+encoding: utf-8
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
