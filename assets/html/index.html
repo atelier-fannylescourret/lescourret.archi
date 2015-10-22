@@ -1,60 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fanny Lescourret, architecte</title>
-    <meta name="description" content="Fanny Lescourret, architecte à Bayonne">
-    <meta name="author" content="Fanny Lescourret">
-    <meta name="robots" content="index, follow">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link href="css/lescourret.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <!-- IE tricks. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body id="home">
-    <div id="content">
-      <h1>Fanny Lescourret <span class="profession">Architecte</span></h1>
-      <section class="row">
-        <div>
-          <h2>Atelier</h2>
-          <address>
-            31 boulevard Jean d'Amou<br />
-            64100 Bayonne
-          </address>
-        </div>
-        <div>
-          <h2>Siège social</h2>
-          <address>
-            13 boulevard Alsace Lorraine<br />
-            64100 Bayonne
-          </address>
-        </div>
-        <div>
-          <h2>Contact</h2>
-          <p>
-            <span class="phone">05&nbsp;35&nbsp;46&nbsp;61&nbsp;47</span><br />
-            <span class="email">fanny@lescourret.archi</span>
-          </p>
-        </div>
-      </section>
-    </div>
+{% extends "base.html" %}
 
-    <div class="footer">
-      <div class="container-fluid">
-        <div class="container">
-          <p>&copy; Fanny Lescourret, 2012-2015</p>
-        </div>
-      </div>
-    </div>
-
-    <script src="js/libs.min.js" type="text/javascript"></script>
-    <script src="js/lescourret.min.js" type="text/javascript"></script>
-  </body>
-</html>
+{% block content %}
+  <div id="content">
+    {% for page in pages %}
+      {% if page.slug == 'index' %}
+        {{ page.content }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock content %}

@@ -7,6 +7,17 @@ BOWER = $(BIN_DIR)/bower
 GRUNT = $(BIN_DIR)/grunt
 GHP = ghp-import
 
+PY?=python
+PELICAN?=pelican
+PELICANOPTS=
+
+BASEDIR=$(CURDIR)
+INPUTDIR=$(BASEDIR)/content
+OUTPUTDIR=$(BASEDIR)/public
+CONFFILE=$(BASEDIR)/pelicanconf.py
+PUBLISHCONF=$(BASEDIR)/publishconf.py
+
+
 
 .PHONY: help develop bower watch public clean dist-clean maintainer-clean gh-pages-commit gh-pages-push
 
@@ -21,7 +32,7 @@ help:
 #: develop - Install development libraries.
 develop:
 	$(NPM) install
-	pip install ghp-import
+	pip install ghp-import pelican Markdown
 
 
 #: bower - Download libraries with bower.
@@ -33,9 +44,11 @@ bower: develop
 watch: develop
 	$(GRUNT) watch
 
+html:
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 #: public - Generate public/ folder contents.
-public: bower
+public: bower html
 	$(GRUNT) copy less uglify
 
 

@@ -58,7 +58,7 @@ H3 {
   background-color: @body_bg_2;
 }
 
-.footer {
+FOOTER {
   position: absolute;
   bottom: 2px;
   left: 0;
@@ -69,7 +69,11 @@ H3 {
   border-width: 1px 0 0 0;
   border-style: solid;
   border-color: #c0c0c0;
-  > .container-fluid {
+  >DIV {
+    &:extend(.container-fluid);
+    >DIV {
+      &:extend(.container);
+    }
     line-height: 50px;
     background-color: #f0f0f0;
     color: #a0a0a0;
@@ -80,14 +84,16 @@ H3 {
 }
 
 /* Home page. */
-BODY#home {
+BODY#page-index {
   SECTION {
     .make-row();
     .make-xs-column(12);
     .make-sm-column(12);
     .make-md-column(12);
     .make-lg-column(12);
-    > DIV {
+    margin: 0 auto;
+    padding: 0;
+    > DIV.section {
       .make-xs-column(12);
       .make-sm-column(4);
       .make-md-column(4);
@@ -96,6 +102,17 @@ BODY#home {
   }
 }
 
+ADDRESS {
+  white-space: pre-line; 
+}
+
+DT {
+  float: left;
+  margin-right: .5em;
+  &:after {
+    content: " :";
+  }
+}
 
 /* Media specific. */
 @media (max-width: @screen-lg-min) {  /* medium */

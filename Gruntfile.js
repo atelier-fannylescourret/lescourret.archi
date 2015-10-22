@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     copy: {
-      html: {
+      /*html: {
         files: [
           {
             expand: true,
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             dest: 'public/'
           }
         ]  
-      },
+      },*/
       img: {
         files: [
           {
@@ -86,10 +86,10 @@ module.exports = function(grunt) {
           nospawn: true
         }
       },
-      html: {
+      /*html: {
         files: ['assets/html/*.html'],
         tasks: ['copy:html']
-      },
+      },*/
       img: {
         files: ['assets/img/**'],
         tasks: ['copy:img']
