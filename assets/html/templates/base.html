@@ -52,6 +52,13 @@
   <header></header>
   <div id="content">
     {% block content %}{% endblock %}
+    <section id="projects">
+      {% for article in articles %}
+        <a href={{ article.url }}>
+          <img src="{{ article.slug }}/vignette.jpg" />
+        </a>
+      {% endfor %}
+    </section>
   </div>
   <footer>
     <div>

@@ -12,7 +12,12 @@ PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 ARTICLE_PATHS = ['projets']
+ARTICLE_SAVE_AS = '{slug}/index.html'
 INDEX_SAVE_AS = ''
+STATIC_PATHS = ['projets']
+USE_FOLDER_AS_CATEGORY = False
+PATH_METADATA = '(?P<slug>.*)/'
+SLUGIFY_SOURCE = 'basename'
 
 THEME = 'assets/html'
 TIMEZONE = 'Europe/Paris'
