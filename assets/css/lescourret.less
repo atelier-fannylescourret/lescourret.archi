@@ -95,22 +95,29 @@ BODY#page-index {
     padding: 0;
     > DIV.section {
       .make-xs-column(12);
-      .make-sm-column(4);
-      .make-md-column(4);
-      .make-lg-column(4);
-    }
-  }
-  SECTION#projects {
-    .make-row();
-    A {
-      .make-xs-column(6);
-      .make-sm-column(3);
+      .make-sm-column(6);
       .make-md-column(3);
-      .make-lg-column(2);
-      padding-bottom: 15px;
-      IMG {
-        width: 100%;
-	border: 2px solid black;
+      .make-lg-column(3);
+      &#illustrations {
+        .make-xs-column(12);
+        .make-sm-column(12);
+        .make-md-column(12);
+        .make-lg-column(12);
+	.make-row();
+        H2 {
+          display: none;
+        }
+        .figure {
+          .make-xs-column(12);
+          .make-sm-column(6);
+          .make-md-column(3);
+          .make-lg-column(3);
+          padding-bottom: 15px;
+          IMG {
+            width: 100%;
+            border: 2px solid black;
+          }
+        }
       }
     }
   }
