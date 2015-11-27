@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Fanny Lescourret'
 SITENAME = u'Fanny Lescourret, Architecte'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http://lescourret.archi'
 
 PATH = 'content'
 PAGE_PATHS = ['pages']
@@ -32,12 +32,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (
-    ('Pelican', 'http://getpelican.com/'),
-    ('Python.org', 'http://python.org/'),
-    ('Jinja2', 'http://jinja.pocoo.org/'),
-    ('You can modify those links in your config file', '#'),
-)
+LINKS = ()
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
