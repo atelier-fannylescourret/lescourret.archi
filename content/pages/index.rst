@@ -1,5 +1,5 @@
 ###########################
-Fanny Lescourret Architecte
+Fanny Lescourret architecte
 ###########################
 
 :slug: index
