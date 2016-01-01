@@ -50,23 +50,19 @@
 </head>
 <body id="{% block body_id %}{% endblock %}">
   <header>
-    <nav class="navbar navbar-light navbar-fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Fanny Lescourret <span>architecte</span></a>
-        <ul class="nav navbar-nav pull-lg-right">
-          <li class="nav-item"><a class="nav-link" href="#actualite">Actualité</a></li>
-          <li class="nav-item"><a class="nav-link" href="#parcours">Parcours</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#references">Références</a></li>
+    <nav>
+      <div>
+        <a id="logo" href="{{ site_url }}">Fanny Lescourret <span>architecte</span></a>
+        <ul>
+          <li><a href="#actualite">Actualité</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#references">Références</a></li>
         </ul>
       </div>
     </nav>
   </header>
   <div id="content" class="container-fluid">
-    <div class="container">
-      <h1>Fanny Lescourret <span>architecte</span></h1>
-    </div>
-    <hr class="bar" />
 
 <section id="actualite">
   <div class="figure">
@@ -80,7 +76,7 @@
   </div>
 </section>
 
-<section id="parcours">
+<section id="parcours" class="container">
   <h2>Parcours</h2>
   <p>Après dix années à exercer mon métier et à me former en agence
 d’architecture, c’est en solo que je crée mon atelier d’architecture en janvier
@@ -107,7 +103,7 @@ avec&nbsp;:
 </ul>
 </section>
 
-<section id="contact">
+<section id="contact" class="container">
 <h2>Contact</h2>
 <h3>Atelier</h3>
 <address>31 boulevard Jean d'Amou
@@ -124,7 +120,7 @@ avec&nbsp;:
 </section>
 
 
-<section id="references">
+<section id="references" class="container">
 <h2>CV</h2>
 <h3>Fanny Lescourret Architecte DPLG</h3>
 <p>Diplômée de l’École Nationale Supérieure d’Architecture de Paris La Villette</p>

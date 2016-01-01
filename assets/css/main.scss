@@ -12,6 +12,14 @@
   transition: $transition;
 }
 
+@mixin show-size {
+  @include media-breakpoint-up(xs) { background-color: purple; }
+  @include media-breakpoint-up(sm) { background-color: cyan; }
+  @include media-breakpoint-up(md) { background-color: yellow; }
+  @include media-breakpoint-up(lg) { background-color: orange; }
+  @include media-breakpoint-up(xl) { background-color: red; }
+}
+
 
 /* Macro blocks. */
 html {
@@ -28,60 +36,99 @@ body {
 }
 
 header {
+  position: relative;
+  display: block;
+  @include media-breakpoint-down(xs) { height: auto; }
+  @include media-breakpoint-up(sm) { height: 150px; }
+  @include media-breakpoint-up(md) { height: 200px; }
   nav {
-    border-width: 0 0 1px 0;
+    @extend .navbar;
+    @extend .navbar-light;
+    @extend .navbar-fixed-top;
+    @include animated-transition(all 0.3s ease-in-out 0.0s);
+    @include media-breakpoint-down(xs) { border-width: 0 0 1px 0; }
+    @include media-breakpoint-up(sm) { border-width: 0 0 2px 0; } 
     border-style: solid;
-    border-color: transparent;
-    .navbar-brand {
-      opacity: 0;
-      text-transform: uppercase;
-      span {
-        color: #aaa;
+    border-color: #000;
+    background-color: rgba(#fff, 1);
+    //@include show-size;
+    @include media-breakpoint-down(xs) { position: relative; }
+    @include media-breakpoint-down(xs) { height: auto; }
+    @include media-breakpoint-up(sm) { height: 150px; }
+    @include media-breakpoint-up(md) { height: 200px; }
+    > div {
+      @extend .container;
+      #logo {
+        @extend .navbar-brand;
+        @include animated-transition(all 0.3s ease-in-out 0.0s);
+        @include media-breakpoint-down(xs) { position: static; }
+        @include media-breakpoint-up(sm) { position: absolute; }
+        width: auto;
+        height: 100%;
+        @include media-breakpoint-down(xs) { top: 23px; }
+        @include media-breakpoint-up(sm) { top: 60px; }
+        @include media-breakpoint-up(md) { top: 73px; }
+        margin: 0;
+        padding: 0;
+        @include media-breakpoint-down(xs) { line-height: 1em; }
+        @include media-breakpoint-up(sm) { line-height: 2rem; }
+        @include media-breakpoint-up(md) { line-height: 3rem; }
+        display: inline-block;
+        text-align: center;
+        text-transform: uppercase;
+        @include media-breakpoint-up(xs) { font-size: 2rem; }
+        @include media-breakpoint-up(sm) { font-size: 2rem; }
+        @include media-breakpoint-up(md) { font-size: 3rem; }
+        letter-spacing: 0.05em;
+        word-spacing: 0.05em;
+        span {
+          margin-left: 0.3em;
+          color: #aaa;
+        }
+      }
+      ul {
+        @extend .nav;
+        @extend .navbar-nav;
+        @include media-breakpoint-down(xs) { clear: both; }
+        @extend .pull-sm-right;
+        @extend .pull-md-right;
+        @extend .pull-lg-right;
+        @extend .pull-xl-right;
+        li {
+          @extend .nav-item;
+          a {
+            @extend .nav-link;
+          }
+        }
+      }
+    }
+  }
+  &.minified {
+    nav {
+      @include media-breakpoint-up(sm) {
+        height: 54px;
+        border-width: 0 0 1px 0;
+      }
+      #logo {
+        @include media-breakpoint-up(sm) {
+          top: 0;
+          height:54px;
+          line-height: 54px;
+          font-size: 1.25rem;
+        }
       }
     }
   }
 }
 
-h1 {
-  @include animated-transition(all 0.2s ease 0s);
-  display: inline-block;
-  position: sticky;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  line-height: 54px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: auto;
-  word-spacing: auto;
-  background-color: transparent;
-  z-index: 2;
-  span {
-    color: #aaa;
-  }
-  &.discreet {
-    width: auto !important;
-    font-size: 1.25rem;
-  }
+h2 {
+  padding-top: 54px;
 }
-
-hr.bar {
-  margin: 0;
-  padding: 0;
-  height: 54px;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #000;
-  background-color: $color_body_bg;
-  z-index: 1;
-}
-
-
 
 #content {
   width: 100%;
-  margin: 54px 0 80px 0;
-  padding: 2rem 0 0 0;
+  margin: 0 0 80px 0;
+  padding: 0;
   background-color: $color_body_bg;
 }
 
@@ -107,4 +154,3 @@ footer {
     border-color: rgba(#fff, .3);
   }
 }
-
