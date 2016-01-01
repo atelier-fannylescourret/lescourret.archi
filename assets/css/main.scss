@@ -1,0 +1,110 @@
+/* Bootstrap. */
+@import "theme";
+@import "../../bower_components/bootstrap/scss/bootstrap-flex";
+
+
+/* Utilities. */
+@mixin animated-transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+
+/* Macro blocks. */
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  color: #303030;
+  background-color: $color_body_bg;
+  font-family: $font_standard;
+}
+
+header {
+  nav {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: transparent;
+    .navbar-brand {
+      opacity: 0;
+      text-transform: uppercase;
+      span {
+        color: #aaa;
+      }
+    }
+  }
+}
+
+h1 {
+  @include animated-transition(all 0.2s ease 0s);
+  display: inline-block;
+  position: sticky;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 54px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: auto;
+  word-spacing: auto;
+  background-color: transparent;
+  z-index: 2;
+  span {
+    color: #aaa;
+  }
+  &.discreet {
+    width: auto !important;
+    font-size: 1.25rem;
+  }
+}
+
+hr.bar {
+  margin: 0;
+  padding: 0;
+  height: 54px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #000;
+  background-color: $color_body_bg;
+  z-index: 1;
+}
+
+
+
+#content {
+  width: 100%;
+  margin: 54px 0 80px 0;
+  padding: 2rem 0 0 0;
+  background-color: $color_body_bg;
+}
+
+footer {
+
+}
+
+.figure {
+  img {
+    width: 100%;
+  }
+  p {
+    position: relative;
+    top: -2em;
+    padding: 0 0 0 1em;
+    line-height: 2em;
+    font-size: 1.5em;
+    background-color: rgba(#fff, .2);
+    color: #000;
+    text-shadow: 0px 0px 3px #ffffff;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: rgba(#fff, .3);
+  }
+}
+
