@@ -36,6 +36,9 @@
     <!-- Style. -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/js/leaflet/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="/js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/slick/slick-theme.css"/>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="{% block permalink %}{{ SITEURL }}/{% endblock %}">
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -49,7 +52,8 @@
     {% endblock head %}
 </head>
 <body id="{% block body_id %}{% endblock %}">
-  <header>
+
+  <header class="minified">
     <nav>
       <div>
         <a id="logo" href="{{ site_url }}">Fanny Lescourret <span>architecte</span></a>
@@ -62,134 +66,162 @@
       </div>
     </nav>
   </header>
-  <div id="content" class="container-fluid">
+
 
 <section id="actualite">
-  <div class="figure">
-    <img src="img/lycee-morcenx-01.jpg" />
-    <p class="legend">Restructuration et extension du lycée Jean Garnier à Morcenx (40)</p>
+  <h2>Actualité</h2>
+  <article>
+    <ul>
+      <li><img src="/img/sample-03.jpg" /></li>
+      <li><img src="/img/sample-05.jpg" /></li>
+    </ul>
+    <div class="legend">
+      <h3>Restructuration et extension du lycée Jean Garnier à Morcenx (40)</h3>
+    </div>
+  </article>
+  <article>
+    <ul>
+      <li><img src="/img/sample-04.jpg" /></li>
+      <li><img src="/img/sample-01.jpg" /></li>
+      <li><img src="/img/sample-02.jpg" /></li>
+    </ul>
+    <div class="legend">
+      <h3>Mise en accessibilité et rénovation de la mairie de Tartas (40) <span>&ndash;&nbsp;Étude en cours</span></h3>
+      <p>Ce projet dont le point de départ était une mission de diagnostic technique
+      vis à vis des réglementations en vigueur &ndash;&nbsp; accessibilité PMR,
+      sécurité incendie, thermique&nbsp;&ndash; a amené un travail de rénovation
+      totale du bâtiment abritant les services de la mairie et l'ancien cinéma
+      de Tartas.</p>
+    </div>
+  </article>
+</section>
+
+
+<section id="parcours">
+  <div>
+    <h2>Parcours</h2>
+    <article>
+      <p>Après dix années à exercer mon métier et à me former en agence
+      d’architecture, c’est en solo que je crée mon atelier d’architecture en
+      janvier 2010.</p>
+      <p>D’abord en parallèle de ma pratique salariée au sein de l’Agence
+      d’Architecture Là puis pour Dominique Lesbegueris &amp; Associés.
+      En 2014, je suis lauréate, associée au cabinet Philippe Bousquet, de
+      deux appels d’offres publics&nbsp;: la rénovation et l’aménagement du
+      bâtiment abritant la mairie et l’ancien cinéma de la ville
+      Tartas&nbsp;(40) et la restructuration et l’extension du lycée Jean
+      Garnier de Morcenx&nbsp;(40). Deux projets en cours.</p>
+      <p>En parallèle, je conçois et réalise pour des maîtres d’ouvrages
+      privés des projets d’habitations adaptées aux besoins et aux moyens de
+      cette clientèle très variée&nbsp;: maisons individuelles, rénovations,
+      extensions, aménagement intérieurs...</p>
+    </article>
+    <article>
+      <p>Membre du Coworking Pays Basque &ndash;&nbsp;plateforme de travail
+      et de production&nbsp;&ndash; j’ai un goût pour les projets partagés
+      et les regards croisés. Je le développe au travers d’associations
+      professionnelles, notamment avec&nbsp;:</p>
+      <ul>
+        <li>Philippe Bousquet &amp; associés à Dax&nbsp;;</li>
+        <li>Atelier 32 &ndash; Tony Hiribarren à Bayonne&nbsp;;</li>
+        <li>Dominique Lesbegueris à Guiche.</li>
+      </ul>
+    </article>
   </div>
+</section>
 
-  <div class="figure">
-    <img src="img/mairie-tartas-01.jpg" />
-    <p class="legend">Mise en accessibilité et rénovation de la mairie de Tartas (40)</p>
+
+<section id="contact">
+  <div>
+    <div>
+      <div>
+        <article>
+          <h2>Contact</h2>
+          <h3>Atelier</h3>
+          <address>31 boulevard Jean d'Amou<br />64100 Bayonne</address>
+          <h3>Siège social</h3>
+          <address>13 boulevard Alsace Lorraine<br />64100 Bayonne</address>
+          <h3>Tél</h3>
+          <p>05 35 46 61 47</p>
+          <h3>E-mail</h3>
+          <p><a href="mailto:fanny&#64;lescourret.archi">fanny&#64;lescourret.archi</a></p>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="parcours" class="container">
-  <h2>Parcours</h2>
-  <p>Après dix années à exercer mon métier et à me former en agence
-d’architecture, c’est en solo que je crée mon atelier d’architecture en janvier
-2010.</p>
-  <p>D’abord en parallèle de ma pratique salariée au sein de l’Agence
-d’Architecture Là puis pour Dominique Lesbegueris &amp; Associés.
-En 2014, je suis lauréate, associée au cabinet Philippe Bousquet, de deux
-appels d’offres publics&nbsp;: la rénovation et l’aménagement du bâtiment abritant
-la mairie et l’ancien cinéma de la ville Tartas (40) et la restructuration et
-l’extension du lycée Jean Garnier de Morcenx (40). Deux projets en cours.</p>
-  <p>En parallèle, je conçois et réalise pour des maîtres d’ouvrages privés des
-projets d’habitations adaptées aux besoins et aux moyens de cette clientèle
-très variée : maisons individuelles, rénovations, extensions, aménagement
-intérieurs...</p>
-<p>Membre du Coworking Pays Basque &ndash;&nbsp;plateforme de travail et de
-production&nbsp;&ndash; j’ai un goût pour les projets partagés et les regards
-croisés. Je le développe au travers d’associations professionnelles, notamment
-avec&nbsp;:
-</p>
-<ul>
-  <li>Philippe Bousquet &amp; associés à Dax&nbsp;;</li>
-  <li>Atelier 32 &ndash; Tony Hiribarren à Bayonne&nbsp;;</li>
-  <li>Dominique Lesbegueris à Guiche.</li>
-</ul>
-</section>
 
-<section id="contact" class="container">
-<h2>Contact</h2>
-<h3>Atelier</h3>
-<address>31 boulevard Jean d'Amou
-64100 Bayonne</address>
-<h3>Siège social</h3>
-<address>13 boulevard Alsace Lorraine
-64100 Bayonne</address>
-<h3>Contact</h3>
-<dt>Tél</dt>
-<dd>05 35 46 61 47</dd>
-<dt>Mail</dt>
-<dd><a href="mailto:fanny&#64;lescourret.archi">fanny&#64;lescourret.archi</a></dd>
-</dl>
-</section>
-
-
-<section id="references" class="container">
-<h2>CV</h2>
-<h3>Fanny Lescourret Architecte DPLG</h3>
-<p>Diplômée de l’École Nationale Supérieure d’Architecture de Paris La Villette</p>
-<p>Inscrite au Tableau depuis 2010 sous le n°076141</p>
-<h3>ÉTUDES</h3>
-<h4>2007 - Diplôme d’architecture DPLG</h4>
-<ul>
-<li>3e cycle, École Nationale Sup. d’Architecture De Paris La Villette
-<li>2e cycle, École Nationale Sup. d’Architecture De Paris Malaquais
-<li>1er cycle, École Nationale Sup. d’Architecture de Toulouse  
-</ul>
-<h3>REFERENCES</h3>
-<h4>2010-2015 - EXERCICE LIBÉRAL, BAYONNE (64)</h4>
-<ul>
-<li>restructuration et extension du Lycée Jean Garnier, Morcenx (40), associée à l’agence Ph. Bousquet (mandataire), concours sur esquisse, Projet lauréat, DET en cours.
-<li>rénovation et réaménagement du bâtiment de la mairie de Tartas (40), associée au cabinet d’architecture Ph. Bousquet, APS en cours,
-<li>rénovation et restructuration d’une maison, Letourne (33), 230m2, études en cours,
-<li>extension d’une maison, Seignosse 40m2, mission permis de construire,
-<li>rénovation et extension d’une maison, Hossegor (40), 170m2, mission complète,
-<li>extension d’une maison, Rivière-Saas-Gourby (40), 40m2, mission PC,
-<li>restauration d’une maison suite à un sinistre, Port-de-Lannes (40), 240m2, associée au cabinet d’architecture Ph. Bousquet, DCE 
-</ul>
-<h3>2006-2013 - EXERCICE SALARIÉ EN AGENCE D’ARCHITECTURE</h3>
-<h3>2012-2013 : Agence Lesbegueris & associés, Guiche (64)</h3>
-<ul>
-<li>construction de 32 logements, Zac du Séqué - Bayonne (64), 2400 m2, PRO-DCE,
-<li>extension et restructuration des lycées Saint-Louis & Beau-de-Rochas, Bordeaux, 19 210m2, APS-PRO.
-</ul>
-<h3>2010-2012 : Agence d’Architecture Là, Anglet (64)</h3>
-<ul>
-<li>construction de 24 logements et commerces, Anglet (64), 3230m2, PRO-DCE,
-<li>Le Vieux cèdre, construction de 15 logements, Toulouse (31), 870m2, APS-PRO,
-<li>Les Lofts d’Aguiléra, construction de 8 logements, Anglet (64), 790m2, APS-PC,
-<li>construction d’une salle de spectacle, Colayrac-Saint-Cirq (47), 1230m2, concours remporté, APD,
-<li>construction d’une salle de spectacle, Saint-Pée-sur-Nivelle (64), 1492m2, concours non lauréat,
-<li>construction de 51 logements, Urrugne (64), 3330m2, concours non lauréat,
-<li>aménagement de 3 plateaux de bureaux, Anglet (64), 700 m2, APS-DCE.
-<li>construction d’une villa à Boucau (64), 170m2, APD-DCE,
-<li>construction d’une villa à Bassussary (64), 220m2, APD-DCE,
-<li>rénovation et extension d’une maison à Anglet (64) 270m2, ESQ-DCE.
-</ul>
-<h3>2006-2009 : Atelier Tsiomis Architectes, Paris (75003)</h3>
-<ul>
-<li>restructuration d’un ancien atelier d’artiste en logement, Paris (75017), 240m2,
-<li>rénovation d’un appartement à Paris (75016), 180m2,
-<li>étude pour réhabilitation d’une résidence universitaire. Cité Internationale, Paris (75014), 2000m2.
-<li>étude pour la réalisation d’une habitation à Neuilly-sur-Seine (92), 1000m2,
-<li>étude pour la réfection d’un château et de ses dépendances, réalisation d’une piscine et de son pool-house, et des aménagements paysagers,
-<li>concours pour la réalisation du siège social de Lafarge à Athènes, Grèce, 4500 m2.
-</ul>
-</section>
-
-{#    {% block content %}{% endblock %}
-    <section id="projects">
-      {% for article in articles %}
-        <a href={{ article.url }}>
-          <img src="{{ article.slug }}/vignette.jpg" />
-        </a>
-      {% endfor %}
-    </section>#}
+<section id="references">
+  <div>
+    <h2>Références</h2>
+    <article>
+      <h3>Fanny Lescourret Architecte DPLG</h3>
+      <p>Diplômée de l’École Nationale Supérieure d’Architecture de Paris La Villette</p>
+      <p>Inscrite au Tableau depuis 2010 sous le n°076141</p>
+      <h3>ÉTUDES</h3>
+      <h4>2007 - Diplôme d’architecture DPLG</h4>
+      <ul>
+        <li>3e cycle, École Nationale Sup. d’Architecture De Paris La Villette</li>
+        <li>2e cycle, École Nationale Sup. d’Architecture De Paris Malaquais</li>
+        <li>1er cycle, École Nationale Sup. d’Architecture de Toulouse</li> 
+      </ul>
+      <h3>REFERENCES</h3>
+      <h4>2010-2015 - EXERCICE LIBÉRAL, BAYONNE (64)</h4>
+      <ul>
+        <li>restructuration et extension du Lycée Jean Garnier, Morcenx (40), associée à l’agence Ph. Bousquet (mandataire), concours sur esquisse, Projet lauréat, DET en cours.</li>
+        <li>rénovation et réaménagement du bâtiment de la mairie de Tartas (40), associée au cabinet d’architecture Ph. Bousquet, APS en cours,</li>
+        <li>rénovation et restructuration d’une maison, Letourne (33), 230m2, études en cours,</li>
+        <li>extension d’une maison, Seignosse 40m2, mission permis de construire,</li>
+        <li>rénovation et extension d’une maison, Hossegor (40), 170m2, mission complète,</li>
+        <li>extension d’une maison, Rivière-Saas-Gourby (40), 40m2, mission PC,</li>
+        <li>restauration d’une maison suite à un sinistre, Port-de-Lannes (40), 240m2, associée au cabinet d’architecture Ph. Bousquet, DCE.</li>
+      </ul>
+    </article>
+    <article>
+      <h4>2006-2013 - EXERCICE SALARIÉ EN AGENCE D’ARCHITECTURE</h4>
+      <h5>2012-2013 : Agence Lesbegueris & associés, Guiche (64)</h5>
+      <ul>
+        <li>construction de 32 logements, Zac du Séqué - Bayonne (64), 2400 m2, PRO-DCE,</li>
+        <li>extension et restructuration des lycées Saint-Louis &amp; Beau-de-Rochas, Bordeaux, 19 210m2, APS-PRO.</li>
+      </ul>
+      <h5>2010-2012 : Agence d’Architecture Là, Anglet (64)</h5>
+      <ul>
+        <li>construction de 24 logements et commerces, Anglet (64), 3230m2, PRO-DCE,</li>
+        <li>Le Vieux cèdre, construction de 15 logements, Toulouse (31), 870m2, APS-PRO,</li>
+        <li>Les Lofts d’Aguiléra, construction de 8 logements, Anglet (64), 790m2, APS-PC,</li>
+        <li>construction d’une salle de spectacle, Colayrac-Saint-Cirq (47), 1230m2, concours remporté, APD,</li>
+        <li>construction d’une salle de spectacle, Saint-Pée-sur-Nivelle (64), 1492m2, concours non lauréat,</li>
+        <li>construction de 51 logements, Urrugne (64), 3330m2, concours non lauréat,</li>
+        <li>aménagement de 3 plateaux de bureaux, Anglet (64), 700 m2, APS-DCE,</li>
+        <li>construction d’une villa à Boucau (64), 170m2, APD-DCE,</li>
+        <li>construction d’une villa à Bassussary (64), 220m2, APD-DCE,</li>
+        <li>rénovation et extension d’une maison à Anglet (64) 270m2, ESQ-DCE.</li>
+      </ul>
+      <h5>2006-2009 : Atelier Tsiomis Architectes, Paris (75003)</h5>
+      <ul>
+        <li>restructuration d’un ancien atelier d’artiste en logement, Paris (75017), 240m2,</li>
+        <li>rénovation d’un appartement à Paris (75016), 180m2,</li>
+        <li>étude pour réhabilitation d’une résidence universitaire. Cité Internationale, Paris (75014), 2000m2.</li>
+        <li>étude pour la réalisation d’une habitation à Neuilly-sur-Seine (92), 1000m2,</li>
+        <li>étude pour la réfection d’un château et de ses dépendances, réalisation d’une piscine et de son pool-house, et des aménagements paysagers,</li>
+        <li>concours pour la réalisation du siège social de Lafarge à Athènes, Grèce, 4500 m2.</li>
+      </ul>
+    </article>
   </div>
+</section>
+
   <footer>
     <div>
       <div>
-        <p>&copy; Fanny Lescourret, 2012-2015</p>
+        <p>&copy; Fanny Lescourret, 2010-2016</p>
       </div>
     </div>
   </footer>
+
   <script src="/js/libs.min.js" type="text/javascript"></script>
+  <script src="/js/leaflet/leaflet.js"></script>
+  <script type="text/javascript" src="/js/slick/slick.min.js"></script>
   <script src="/js/main.js" type="text/javascript"></script>
 </body>
 </html>

@@ -23,17 +23,27 @@
 
 /* Macro blocks. */
 html {
-  min-height: 100%;
   position: relative;
+  min-height: 100%;
 }
 
 body {
   position: relative;
   min-height: 100%;
-  color: #303030;
+  margin: 0;
+  padding: 0 0 100px 0;  // Footer height + some space.
   background-color: $color_body_bg;
   font-family: $font_standard;
 }
+
+address {
+  white-space: pre;
+}
+
+section {
+  padding-top: 4rem;
+}
+
 
 header {
   position: relative;
@@ -46,8 +56,7 @@ header {
     @extend .navbar-light;
     @extend .navbar-fixed-top;
     @include animated-transition(all 0.3s ease-in-out 0.0s);
-    @include media-breakpoint-down(xs) { border-width: 0 0 1px 0; }
-    @include media-breakpoint-up(sm) { border-width: 0 0 2px 0; } 
+    border-width: 0 0 1px 0;
     border-style: solid;
     border-color: #000;
     background-color: rgba(#fff, 1);
@@ -104,6 +113,9 @@ header {
     }
   }
   &.minified {
+    @include media-breakpoint-up(sm) {
+      height:54px;
+    }
     nav {
       @include media-breakpoint-up(sm) {
         height: 54px;
@@ -121,36 +133,173 @@ header {
   }
 }
 
+
 h2 {
-  padding-top: 54px;
+  font-size: 3rem;
 }
 
-#content {
-  width: 100%;
-  margin: 0 0 80px 0;
-  padding: 0;
-  background-color: $color_body_bg;
+
+.slick-next {
+  right: 50px;
 }
+.slick-prev {
+  left: 50px;
+}
+.slick-slide {
+  @include animated-transition(all .7s ease-in-out .2s);
+  filter: grayscale(1);
+  opacity: 0.3;
+  &.slick-current {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+}
+
+
+#actualite {
+  @include make-container($gutter: 0);
+  h2 {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+  article {
+    margin: 0 0 2rem 0;
+    background-color: #fff;
+    > ul {
+      @extend .list-inline;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      li {
+	@extend .list-inline-item;
+        margin: 0 !important;
+	padding: 0 1px 0 0;
+        img {
+	  float: left;
+          height: 300px;
+          max-width: 100%;
+        }
+      }
+    }
+    .legend {
+      @include make-container();
+      @include make-container-max-widths();
+      clear: both;
+      h3 {
+        margin: 0;
+        padding: 0;
+        line-height: 2rem;
+        font-size: 1.5rem;
+	span {
+	  font-size: 1rem;
+	}
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        line-height: 1.5rem;
+        font-size: 1rem;
+        color: #000;
+      }
+    }
+  }
+}
+
+
+#parcours {
+  @include make-container();
+  @include make-container-max-widths();
+  > div {
+    @include make-row();
+    h2 {
+      @include make-col();
+      @include make-col-span(12);
+    }
+    article {
+      @include make-col();
+      @include make-col-span(6);
+    }
+  }
+}
+
+
+#contact {
+  @include make-container($gutter: 0);
+  position: relative;
+  > div {
+    width: 100%;
+    background-color: #d1e7d2;
+    background-image: url("/img/map.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    > div {
+      @include make-container();
+      @include make-container-max-widths();
+      position: relative;
+      z-index: 2;
+      > div {
+        @include make-row();
+        article {
+          @include make-col-span(3);
+          padding: 0 20px;
+          background-color: #fff; 
+        }
+      }
+    }
+  }
+  #map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 2rem 0 0 0;
+    padding: 0;
+  }
+}
+
+
+#references {
+  @include make-container();
+  @include make-container-max-widths();
+  > div {
+    @include make-row();
+    h2 {
+      @include make-col();
+      @include make-col-span(12);
+    }
+    article {
+      @include make-col();
+      @include make-col-span(6);
+    }
+  } 
+}
+
 
 footer {
-
-}
-
-.figure {
-  img {
-    width: 100%;
-  }
-  p {
-    position: relative;
-    top: -2em;
-    padding: 0 0 0 1em;
-    line-height: 2em;
-    font-size: 1.5em;
-    background-color: rgba(#fff, .2);
-    color: #000;
-    text-shadow: 0px 0px 3px #ffffff;
-    border-width: 1px 0 0 0;
-    border-style: solid;
-    border-color: rgba(#fff, .3);
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #c0c0c0;
+  background-color: #f0f0f0;
+  > div {
+    @include make-container();
+    > div {
+      @include make-container();
+      @include make-container-max-widths();
+      p {
+        line-height: 54px;
+	font-size: 1.25rem;
+        color: #a0a0a0;
+        margin: 0 auto;
+      }
+    }
   }
 }
