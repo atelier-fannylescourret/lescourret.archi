@@ -1,6 +1,6 @@
 (function($) {
   $(document).ready(function() {
-//    initialize_brand();
+    initialize_brand();
 //    initialize_scrollspy();
 //    initialize_carousel();
   });
@@ -30,28 +30,33 @@
     });
   }
 
+  var header = null;
+  var minified = false;
+  var scrollTimeout;  // global for any pending scrollTimeout
+
   function initialize_brand() {
+    header = $('header');
     minify_brand();
+    if(!minified) {
+      $(window).scroll(scroll_manager);
+    }
   }
 
-  var scrolling = false;
+  function scroll_manager() {
+    if (scrollTimeout) {
+      // clear the timeout, if one is pending
+      clearTimeout(scrollTimeout);
+      scrollTimeout = null;
+    }
+    scrollTimeout = setTimeout(minify_brand, 50);
+  }
 
   function minify_brand() {
-    console.log('minifying');
-    header = $('header');
-    if(header.hasClass('minified')) { return; }
-    if ( $(window).scrollTop() >= 200 - 54 ) {  // Floor detection.
+    if(minified) { return; }
+    if ( $(window).scrollTop() >= 144 ) {  // Floor detection.
       header.addClass('minified');
-      was_minified = true;
-      $(window).unbind('scroll', minify_brand);
-      scrolling = false;
-    } else {
-      $(window).scroll(function() {
-        if(scrolling) return;
-        console.log('scrolling');
-        scrolling = true;
-        minify_brand();
-      });
+      minified = true;
+      $(window).unbind('scroll', scroll_manager);
     }
   }
 
