@@ -18,14 +18,16 @@
   }
 
   function initialize_carousel() {
-    $('#actualite article > ul').each( function(index) {
+    $('#actualite article > .illustrations').each( function(index) {
       $(this).slick({
+        prevArrow: $(this).next().children('.prev').first(),
+        nextArrow: $(this).next().children('.next').first(),
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 300,
         slidesToShow: 1,
         centerMode: true,
-        variableWidth: true  
+        variableWidth: true
       });
     });
   }

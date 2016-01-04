@@ -20,6 +20,15 @@
   @include media-breakpoint-up(xl) { background-color: red; }
 }
 
+@mixin grayscale($level) {
+  -webkit-filter: grayscale($level);
+  -moz-filter: grayscale($level);
+  -ms-filter: grayscale($level);
+  -o-filter: grayscale($level);
+  filter: grayscale($level);
+  //filter: gray; /* IE 6-9 */
+}
+
 
 /* Macro blocks. */
 html {
@@ -145,19 +154,29 @@ h2 {
 }
 
 
-.slick-next {
-  right: 50px;
-}
-.slick-prev {
-  left: 50px;
-}
-.slick-slide {
-  @include animated-transition(all .7s ease-in-out .2s);
-  filter: grayscale(1);
-  opacity: 0.3;
-  &.slick-current {
-    opacity: 1;
-    filter: grayscale(0);
+.slick-slider {
+  .slick-list {
+    .slick-track {
+      .slick-slide {
+        border-width: 0 2px;
+        &:first-child { border-left-width: 4px; }
+        &:last-child { border-right-width: 4px; }
+        border-color: #fff;
+        border-style: solid;
+        background-color: #fff;
+        img {
+          @include animated-transition(all .7s ease-in-out .2s);
+          @include grayscale(1);
+          opacity: 0.3;
+        }
+        &.slick-current {
+          img {
+            opacity: 1;
+            @include grayscale(0);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -173,19 +192,19 @@ h2 {
   }
   article {
     margin: 0 0 2rem 0;
-    background-color: #fff;
-    > ul {
-      @extend .list-inline;
+    &:last-child { margin-bottom: 0; }
+    .illustrations {
       position: relative;
       margin: 0;
       padding: 0;
       width: 100%;
-      li {
-	@extend .list-inline-item;
-        margin: 0 !important;
-	padding: 0 1px 0 0;
+      @include media-breakpoint-up(xs) { height: 300px; }
+      background: #f0f0f0;
+      div {
+        margin: 0;
+        padding: 0;
         img {
-	  float: left;
+          float: left;
           height: 300px;
           max-width: 100%;
         }
@@ -194,6 +213,7 @@ h2 {
     .legend {
       @include make-container();
       @include make-container-max-widths();
+      position: relative;
       clear: both;
       h3 {
         margin: 0;
@@ -210,6 +230,18 @@ h2 {
         line-height: 1.5rem;
         font-size: 1rem;
         color: #000;
+      }
+      .slick-next,
+      .slick-prev {
+        display: block;
+        float: right;
+//        position: absolute;
+//        top: 20px;
+//        right: 20px;
+        font-size: 40px;
+        color: #000;
+        width: 100px;
+        height: 20px;
       }
     }
   }
@@ -247,9 +279,10 @@ h2 {
       > div {
         @include make-row();
         article {
+          @include make-col();
           @include make-col-span(3);
           padding: 0 20px;
-          background-color: #fff; 
+          background-color: #fff;
         }
       }
     }
