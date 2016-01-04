@@ -2,7 +2,7 @@
   $(document).ready(function() {
     initialize_brand();
 //    initialize_scrollspy();
-//    initialize_carousel();
+    initialize_carousel();
   });
 
   function initialize_scrollspy() {
