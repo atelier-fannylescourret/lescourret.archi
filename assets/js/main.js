@@ -1,14 +1,15 @@
 (function($) {
   $(document).ready(function() {
     initialize_brand();
-//    initialize_scrollspy();
+    initialize_scrollspy();
     initialize_carousel();
   });
 
   function initialize_scrollspy() {
     console.log("Initializing menu's scroll spy.");
+    $('header ul li a').addClass('nav-link');
     $('body').scrollspy({
-      offset: 0,
+      offset: 100,
       method: 'offset',
       target: 'header'
     });
@@ -58,7 +59,7 @@
     if ( $(window).scrollTop() >= 144 ) {  // Floor detection.
       header.addClass('minified');
       minified = true;
-      $(window).unbind('scroll', scroll_manager);
+//      $(window).unbind('scroll', scroll_manager);
     }
   }
 
