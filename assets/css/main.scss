@@ -251,16 +251,21 @@ h2 {
         margin: 0;
         padding: 0;
         line-height: 2rem;
-        font-size: 1.5rem;
+        @include media-breakpoint-down(md) { font-size: 1rem; }
+        @include media-breakpoint-down(lg) { font-size: 1.2rem; }
+        @include media-breakpoint-up(lg) { font-size: 1.5rem; }
 	span {
 	  font-size: 1rem;
+          @include media-breakpoint-down(lg) { font-size: 0.9rem; }
+          @include media-breakpoint-up(lg) { font-size: 1rem; }
 	}
       }
       p {
         margin: 0;
         padding: 0;
         line-height: 1.5rem;
-        font-size: 1rem;
+        @include media-breakpoint-down(md) { font-size: 0.9rem; }
+        @include media-breakpoint-up(md) { font-size: 1rem; }
         color: #000;
       }
       .slick-arrow {
