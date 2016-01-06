@@ -2,8 +2,18 @@
 $enable-transitions: true;
 
 /* Fonts. */
-$font_standard: 'Open Sans Condensed', sans-serif; 
-$font_title: 'Open Sans Condensed', sans-serif; 
+@font-face {
+    font-family: 'open_sanscondensed_light';
+    src: url('/fonts/OpenSans-CondLight-webfont.eot');
+    src: url('/fonts/OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-CondLight-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-CondLight-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-CondLight-webfont.svg#open_sanscondensed_light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+$font_standard: 'open_sanscondensed_light', sans-serif;
+$font_title: 'open_sanscondensed_light', sans-serif;
 
 /* Colors. */
 $color_body_bg: #ffffff;
