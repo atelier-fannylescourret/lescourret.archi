@@ -99,6 +99,7 @@ img:
 .PHONY: fonts
 fonts:
 	mkdir -p public/fonts
+	rsync --progress bower_components/fontawesome/fonts/* public/fonts/
 	rsync -r --progress assets/fonts/ public/fonts/
 
 
