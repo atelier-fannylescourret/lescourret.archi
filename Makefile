@@ -73,7 +73,12 @@ css:
 .PHONY: jslibs
 jslibs:
 	mkdir -p public/js
-	$(UGLIFYJS) bower_components/jquery/dist/jquery.js bower_components/tether/dist/js/tether.js bower_components/bootstrap/dist/js/bootstrap.js --output=public/js/libs.min.js
+	$(UGLIFYJS) \
+		bower_components/jquery/dist/jquery.js \
+		bower_components/tether/dist/js/tether.js \
+		bower_components/slick.js/slick/slick.js \
+		bower_components/bootstrap/dist/js/bootstrap.js \
+		--output=public/js/libs.min.js
 
 
 #: jsmain - Generate JS specific code in public/ folder.
