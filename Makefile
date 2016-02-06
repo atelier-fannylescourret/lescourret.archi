@@ -79,13 +79,9 @@ jslibs:
 		bower_components/slick.js/slick/slick.js \
 		bower_components/bootstrap/dist/js/bootstrap.js \
 		--output=public/js/libs.min.js
-
-
-#: jsmain - Generate JS specific code in public/ folder.
-.PHONY: jsmain
-jsmain:
-	mkdir -p public/js
-	$(UGLIFYJS) assets/js/main.js --output=public/js/main.js
+	$(UGLIFYJS) \
+		assets/js/main.js \
+		--output=public/js/main.js
 
 
 #: img - Generate public/img/
@@ -105,7 +101,7 @@ fonts:
 
 #: public - Generate public/ folder contents.
 .PHONY: public
-public: css fonts html img jslibs jsmain
+public: css fonts html img js
 
 
 #: serve - Serve public/ folder on localhost:8000
