@@ -1,8 +1,8 @@
-###########################
-Fanny Lescourret Architecte
-###########################
+#######
+Contact
+#######
 
-:slug: index
+:slug: contact
 :summary: Fanny Lescourret, architecte à Bayonne.
 
 
@@ -23,11 +23,14 @@ Siège social
    <address>13 boulevard Alsace Lorraine
    64100 Bayonne</address>
 
-Contact
-=======
 
 Tél
-  05 35 46 61 47
+===
+
+05 35 46 61 47
+
 
 Mail
-  fanny@lescourret.archi
+====
+
+fanny@lescourret.archi

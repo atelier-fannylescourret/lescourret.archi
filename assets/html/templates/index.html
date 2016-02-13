@@ -1,9 +1,50 @@
 {% extends "base.html" %}
-{% block content %}
-<section id="content">
-  {% block content_title %}
-    <h2>All articles</h2>
-  {% endblock %}
 
-</section><!-- /#content -->
+
+{% block body_id %}index{% endblock %}
+
+
+{% block content %}
+
+  {# Articles #}
+  <section id="actualite">
+    <h2>Actualité</h2>
+    {% for article in articles %}
+      {% set illustrations = article.metadata.illustrations.split(' ') %}
+      <article>
+        <div class="illustrations">
+          {% for illustration in illustrations %}
+            <div><img src="./img/{{ illustration }}" /></div>
+          {% endfor %}
+        </div>
+        <div class="legend">
+          <button class="btn btn-link next" title="Image suivante"><span class="fa fa-chevron-circle-right"> </span></button>
+          <button class="btn btn-link prev" title="Image précédente"><span class="fa fa-chevron-circle-left"> </span></button>
+          <h3>{{ article.title }} <span>&ndash;&nbsp;{{ article.metadata.progress }}</span></h3>
+          {{ article.content }}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  {# Pages #}
+  {% for page in pages %}
+    <section id="{{ page.slug }}">
+      <div>
+        <div>
+          <article>
+            <h2>{{ page.title }}</h2>
+            <div>
+              {% filter replace("<h2>", "<h3>") %}
+                {% filter replace("<h3>", "<h4>") %}
+                  {{ page.content }}
+                {% endfilter %}
+              {% endfilter %}
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+
 {% endblock content %}

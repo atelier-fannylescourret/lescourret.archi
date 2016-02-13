@@ -1,0 +1,30 @@
+@mixin animated-transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin show-size {
+  @include media-breakpoint-up(xs) { background-color: purple; }
+  @include media-breakpoint-up(sm) { background-color: cyan; }
+  @include media-breakpoint-up(md) { background-color: yellow; }
+  @include media-breakpoint-up(lg) { background-color: orange; }
+  @include media-breakpoint-up(xl) { background-color: red; }
+}
+
+@mixin grayscale($level) {
+  -webkit-filter: grayscale($level);
+  -moz-filter: grayscale($level);
+  -ms-filter: grayscale($level);
+  -o-filter: grayscale($level);
+  filter: grayscale($level);
+  //filter: gray; /* IE 6-9 */
+}
+
+@mixin make-css-columns($columns) {
+  column-count: $columns;
+  -moz-column-count: $columns;
+  -webkit-column-count: $columns;
+}

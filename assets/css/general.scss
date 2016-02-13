@@ -1,0 +1,29 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 54px 0 100px 0;  // Footer height + some space.
+  @include media-breakpoint-down(sm) { padding-top: 0px; }
+  background-color: $color_body_bg;
+  font-family: $font_standard;
+}
+
+address {
+  white-space: pre;
+}
+
+section {
+  padding-top: 54px;
+}
+
+h2 {
+  margin: 0 auto;
+  padding: 0;
+  line-height: 100px;
+  font-size: 3rem;
+}
