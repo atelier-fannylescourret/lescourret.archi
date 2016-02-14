@@ -1,0 +1,25 @@
+.slick-slider {
+  .slick-list {
+    .slick-track {
+      .slick-slide {
+        border-width: 0 2px;
+        &:first-child { border-left-width: 4px; }
+        &:last-child { border-right-width: 4px; }
+        border-color: #fff;
+        border-style: solid;
+        background-color: #fff;
+        img {
+          @include animated-transition(all .7s ease-in-out .2s);
+          @include grayscale(1);
+          opacity: 0.3;
+        }
+        &.slick-current {
+          img {
+            opacity: 1;
+            @include grayscale(0);
+          }
+        }
+      }
+    }
+  }
+}

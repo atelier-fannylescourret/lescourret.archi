@@ -1,0 +1,125 @@
+body#index {
+  section.page {
+    @include make-container();
+    @include make-container-max-widths();
+    > div {
+      > div {
+        article {
+          > div {
+            @include media-breakpoint-up(md) {
+              @include make-css-columns(2);
+              > p, > ul, > ol, > div {
+	        -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #actualite {
+    @include make-container($gutter: 0);
+    position: relative;
+    @include media-breakpoint-down(md) { padding-top: 0px; }
+    @include media-breakpoint-up(md) { padding-top: 44px; }
+    h2 {
+      @include make-container($gutter: 0);
+      @include make-container-max-widths();
+    }
+    article {
+      margin: 0 0 2rem 0;
+      &:last-child { margin-bottom: 0; }
+      .illustrations {
+        @include animated-transition(all .7s ease-in-out .2s);
+        @include media-breakpoint-up(xs) { height: 192px; }
+        @include media-breakpoint-up(sm) { height: 192px; }
+        @include media-breakpoint-up(md) { height: 256px; }
+        @include media-breakpoint-up(lg) { height: 331px; }
+        @include media-breakpoint-up(xl) { height: 400px; }
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        background: #f0f0f0;
+        div {
+          margin: 0;
+          padding: 0;
+          img {
+            float: left;
+            max-width: 100%;
+            @include media-breakpoint-up(xs) { height: 192px; }
+            @include media-breakpoint-up(sm) { height: 192px; }
+            @include media-breakpoint-up(md) { height: 256px; }
+            @include media-breakpoint-up(lg) { height: 331px; }
+            @include media-breakpoint-up(xl) { height: 400px; }
+          }
+        }
+      }
+      .legend {
+        @include make-container();
+        @include make-container-max-widths();
+        position: relative;
+        clear: both;
+        h3 {
+          margin: 0;
+          padding: 0;
+          line-height: 2rem;
+          @include media-breakpoint-down(md) { font-size: 1rem; }
+          @include media-breakpoint-down(lg) { font-size: 1.2rem; }
+          @include media-breakpoint-up(lg) { font-size: 1.5rem; }
+  	span {
+  	  font-size: 1rem;
+            @include media-breakpoint-down(lg) { font-size: 0.9rem; }
+            @include media-breakpoint-up(lg) { font-size: 1rem; }
+  	}
+        }
+        p {
+          margin: 0;
+          padding: 0;
+          line-height: 1.5rem;
+          @include media-breakpoint-down(md) { font-size: 0.9rem; }
+          @include media-breakpoint-up(md) { font-size: 1rem; }
+          color: #000;
+        }
+        .slick-arrow {
+  	position: relative;
+  	float: right;
+  	&.slick-disabled {
+  	  color: #a0a0a0;
+  	  cursor: auto;
+  	}
+          &.prev {}
+          &.next {}
+        }
+      }
+    }
+  }
+
+  #contact {
+    @include make-container($gutter: 0);
+    width: 100%;
+    max-width: none;
+    > div {
+      background-color: #f7f4ed;
+      background-image: url("../img/map.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      > div {
+	@include make-row();
+        @include make-container();
+        @include make-container-max-widths();
+        article {
+            @include make-col();
+            @include make-col-span(3);
+            background-color: #fff;
+	  > div {
+            @include make-css-columns(1);
+	  }
+        }
+      }
+    }
+  }
+}

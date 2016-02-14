@@ -1,0 +1,18 @@
+/* Global settings. */
+@import "theme";
+
+/* Libraries. */
+@import "../../bower_components/slick.js/slick/slick";
+@import "../../bower_components/fontawesome/scss/font-awesome";
+@import "../../bower_components/bootstrap/scss/bootstrap-flex";
+
+/* Specific stuff. */
+@import "mixins";
+@import "general";
+@import "header";
+@import "header";
+@import "footer";
+@import "slick-slider";
+
+/* Pages. */
+@import "index";
