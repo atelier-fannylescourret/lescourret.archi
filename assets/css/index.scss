@@ -1,4 +1,25 @@
 body#index {
+  section.page {
+    @include make-container();
+    @include make-container-max-widths();
+    > div {
+      > div {
+        article {
+          > div {
+            @include media-breakpoint-up(md) {
+              @include make-css-columns(2);
+              > p, > ul, > ol, > div {
+	        -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   #actualite {
     @include make-container($gutter: 0);
     position: relative;
@@ -76,32 +97,11 @@ body#index {
       }
     }
   }
-  
-  
-  #parcours {
-    @include make-container();
-    @include make-container-max-widths();
-    > div {
-      > div {
-        article {
-          div {
-            @include media-breakpoint-up(md) {
-              @include make-css-columns(2);
-              > p, ul, div {
-	        -webkit-column-break-inside: avoid;
-                page-break-inside: avoid;
-                break-inside: avoid;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  
+
   #contact {
     @include make-container($gutter: 0);
+    width: 100%;
+    max-width: none;
     > div {
       background-color: #f7f4ed;
       background-image: url("../img/map.jpg");
@@ -116,29 +116,8 @@ body#index {
             @include make-col-span(3);
             background-color: #fff;
 	  > div {
+            @include make-css-columns(1);
 	  }
-        }
-      }
-    }
-  }
-  
-  
-  #references {
-    @include make-container();
-    @include make-container-max-widths();
-    > div {
-      > div {
-        article {
-          > div {
-            @include media-breakpoint-up(md) {
-              @include make-css-columns(2);
-              > p, > ul, > div {
-	        -webkit-column-break-inside: avoid;
-                page-break-inside: avoid;
-                break-inside: avoid;
-              }
-            }
-          }
         }
       }
     }

@@ -70,8 +70,8 @@ css:
 
 
 #: jslibs - Generate JS libraries in public/ folder.
-.PHONY: jslibs
-jslibs:
+.PHONY: js
+js:
 	mkdir -p public/js
 	$(UGLIFYJS) \
 		bower_components/jquery/dist/jquery.js \
