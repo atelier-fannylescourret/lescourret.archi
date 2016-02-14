@@ -8,5 +8,5 @@ install:
 - pip install ghp-import
 language: python
 script:
-- make public gh-pages-commit gh-pages-push
+- make develop public gh-pages-commit gh-pages-push
 sudo: false
